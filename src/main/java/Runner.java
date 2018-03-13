@@ -61,5 +61,7 @@ public class Runner {
 
         List<File> allFilesInFolder2 = DBHelper.findFilesInFolder(folder2);
 
+        List<Folder> allFoldersOwnedByOwner1 = DBHelper.findFoldersOwnedby(owner1);
+
     }
 }

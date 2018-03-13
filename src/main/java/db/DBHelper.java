@@ -2,6 +2,7 @@ package db;
 
 import models.File;
 import models.Folder;
+import models.Owner;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 
@@ -60,7 +61,15 @@ public class DBHelper {
         return results;
     }
 
-    public
+    public static List<Folder> findFoldersOwnedby(Owner owner){
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Folder> results = null;
+        Criteria cr = session.createCriteria(Folder.class);
+        cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        cr.add(Restrictions.eq("owner", owner));
+        results = getList(cr);
+        return results;
+    }
 
 
 
