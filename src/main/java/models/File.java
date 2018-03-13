@@ -1,12 +1,12 @@
 package models;
 
 import javax.persistence.*;
-import javax.xml.soap.Name;
 
+@Entity
+@Table(name = "files")
 public class File {
 
-    @Entity
-    @Table(name = "files")
+
     private int id;
     private String name;
     private String extension;
